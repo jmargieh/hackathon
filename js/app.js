@@ -102,6 +102,8 @@ $( document ).ready(function() {
 
 //////// suggested post list items //////
 
+var gotSuggested = 0;
+
 $("#suggested-tab").click(function() {
 	var itemsList = [], eventType, data;
 	$( "#task-list li" ).each(function( index ) {
@@ -112,20 +114,39 @@ $("#suggested-tab").click(function() {
 	eventType = $( "#eventType option:selected" ).text();
 	data = { "eventType" : eventType , "shoppingList"  : itemsList };
 	console.log(data);
-	$.ajax({
-  			type: "POST",
-			url: "http://glass-tribute-131519.appspot.com/suggested",
-			data: data,
-			contentType: "application/json",
-			jsonp: "callback",
-        	dataType: "jsonp",
-			success: function(response){
-    			alert(response);
-  			},
- 			error: function(response){
-    			alert("error");
-  			}
-	});
+
+
+var xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://glass-tribute-131519.appspot.com/suggested");
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4 && xhr.status == 200){
+			if (gotSuggested == 0) {
+			gotSuggested = 1;
+			var response = JSON.parse(xhr.responseText);
+			var newItem;
+			$('#task-list-suggested').empty();
+			for(var i=0; i<response.length; i++) {
+				newItem = '<li>' + '<p>'+response[i]+'</p>' + '</li>'
+				$('#task-list-suggested').prepend(newItem);
+			}
+
+			$('#task-list-suggested li').click(function(e) 
+    		{ 
+    			var newTask = '<li>' + '<p>'+$( this ).text() +'</p>' + '</li>'
+				$('#task-list').prepend(newTask);
+     			$( this ).remove();
+    		});
+			
+            console.log(response);
+			}
+        }
+        else{
+            if(xhr.status == 408 ){
+                console.log("error");
+            }
+        }
+    };
+    xhr.send(JSON.stringify(data));
 
 
 });

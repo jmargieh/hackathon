@@ -549,7 +549,7 @@
         }), a(window).resize(function(a) {
             s(), o()
         }), a(window).scroll(function(a) {
-            m(), P()
+            /*m(),*/ P()
         }), a(window).on("load resize", function() {
             var e = a(window).height();
             a(".page-not-found, .page-comingsoon").css("min-height", e);
