@@ -13,7 +13,7 @@ function parseEvent(Event)
 	result = result + '</div>';
 	result = result + '</div>';
 	result = result + '<div class="col-xs-3 review-number">';
-	if ("finalDate" in obj){
+	if ("finalDate" in Event){
 		fd = Event["finalDate"];
 		result = result + '<ins>' + fd["fromTime"] + '</ins>';
 		result = result + '<ins>' + 'Day' + '</ins>';
