@@ -216,16 +216,16 @@
             }
         }
 
-        function m() {
-            var e = a(window).scrollTop();
-            e > 100 ? 0 == a("#header").hasClass("header-stick") && (a("#header").addClass("header-stick"), a(".navigation.nav").closest("body").find("#header").find(".logo").css({
-                opacity: "1",
-                visibility: "visible"
-            })) : (a("#header").removeClass("header-stick"), a(".navigation.nav").closest("body").find("#header").css("background-color", "transparent").find(".logo").css({
-                opacity: "0",
-                visibility: "hidden"
-            }))
-        }
+        // function m() {
+        //     var e = a(window).scrollTop();
+        //     e > 100 ? 0 == a("#header").hasClass("header-stick") && (a("#header").addClass("header-stick"), a(".navigation.nav").closest("body").find("#header").find(".logo").css({
+        //         opacity: "1",
+        //         visibility: "visible"
+        //     })) : (a("#header").removeClass("header-stick"), a(".navigation.nav").closest("body").find("#header").css("background-color", "transparent").find(".logo").css({
+        //         opacity: "0",
+        //         visibility: "hidden"
+        //     }))
+        // }
 
         function f() {
             a(".price-slider").length && a(".price-slider").slider({
@@ -545,7 +545,7 @@
         }
         var S = a(window).width();
         t(), s(), n(), o(), r(), c(), d(), u(), g(), f(), v(), y(), M(), D(), w(), C(), x(), k(), T(), B(), A(), z(), O(), a(window).load(function(e) {
-            a("#preloader").fadeOut(1e3), s(), m(), h(), p(), i(), I(), l()
+            a("#preloader").fadeOut(1e3), s(), /*m(),*/ h(), p(), i(), I(), l()
         }), a(window).resize(function(a) {
             s(), o()
         }), a(window).scroll(function(a) {

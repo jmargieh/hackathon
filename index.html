@@ -20,6 +20,7 @@
                <link rel="stylesheet" href="css/style.css">
                <link rel="stylesheet" href="css/gmap.css">
                <link rel="stylesheet" href="css/shopping.css">
+               <link rel="stylesheet" href="css/friends-list.css">
                <script async="" src="//connect.facebook.net/en_US/fbevents.js"></script><script async="" src="//connect.facebook.net/en_US/fbevents.js"></script><script async="" src="//connect.facebook.net/en_US/fbevents.js"></script><script async="" src="//connect.facebook.net/en_US/fbevents.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script async="" src="//connect.facebook.net/en_US/fbevents.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script async="" src="//connect.facebook.net/en_US/fbevents.js"></script><script>
                   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
                   n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -166,17 +167,39 @@
                            </ul>
                            <div class="tab-content">
 
-
+<!--.////////////// --><!--.////////////// --><!--.////////////// --><!--.////////////// --><!--.////////////// -->
                               <div class="form-cn form-hotel tab-pane" id="form-friends">
-                                 <h2>Dates &amp; times</h2>
+                                 <h2>Invitees</h2>
                                  <div class="form-search clearfix">
 
+                                 <div id="all-friends">
 
-									<div class="form-submit">
-									<button type="button" id="finish-btn" class="awe-btn awe-btn-medium awe-btn-1">Create Event</button></div>
+                                    <div id="friends" style="padding-top:20px;">
+                                       <div class="form-field field-destination">
+                                       <input type="text" id="friends-search" class="field-input eventDate" placeholder="Search for friends">
+                                       </div>
+                                       <!--
+                                       <div class="form-submit"><button style="width: 275px;" id="invite-friend-btn" type="submit" class="awe-btn awe-btn-medium awe-btn-1">Invite</button></div>
+                                       -->
+                               <div id="friends-container">
+                                 <ul style="padding: 5px;" id="friends-list">
+                                 </ul>
+                              </div>
+                                       
+                                 </div>
+
+                                 </div>
+
+                                 
+                           <div class="form-submit">
+                           <button type="button" id="finish-btn" class="awe-btn awe-btn-medium awe-btn-1">Finish &gt;&gt;</button></div>
                                  </div>
                               </div>
 
+
+
+
+<!--.////////////// --><!--.////////////// --><!--.////////////// --><!--.////////////// --><!--.////////////// -->
 
                               <div class="form-cn form-hotel tab-pane" id="form-hotel">
                                  <h2>Dates &amp; times</h2>
@@ -207,6 +230,8 @@
 									<button type="button" id="step-2-btn" class="awe-btn awe-btn-medium awe-btn-1">Next &gt;&gt;</button></div>
                                  </div>
                               </div>
+
+
                               <div class="form-cn form-car tab-pane" id="form-car">
                                  <h2>Where?</h2>
                                  <div class="form-search clearfix">
@@ -281,12 +306,12 @@
                               <div class="form-cn form-flight tab-pane active" id="form-flight">
                                  <h2>Event</h2>
                                  <div class="form-search clearfix">
-                                    <div class="form-field field-from"><label for="flight-from"><span>Event name : </span> </label><input type="text" name="flightfrom" id="flight-from" class="field-input"></div>
-                                    <div class="form-field field-to"><label for="flight-to"><span>Event Description : </span> </label><input type="text" id="flight-to" class="field-input"></div>
+                                    <div class="form-field field-from"><label for="flight-from"><span>Event name : </span> </label><input type="text" name="flightfrom" id="eventName" class="field-input"></div>
+                                    <div class="form-field field-to"><label for="flight-to"><span>Event Description : </span> </label><input type="text" id="eventDesc" class="field-input"></div>
                                    <div class="form-field field-select">
                                        <div class="select">
                                           <span>Event type</span>
-                                          <select>
+                                          <select id="eventType">
                                              <option>Breakfast</option>
                                              <option>Dinner</option>
                                              <option>Barbeque</option>
@@ -302,15 +327,39 @@
                                  <ul class="form-radio">
 
                                  </ul>
+
+
                                  <div class="form-search clearfix">
-                                    <div class="form-field field-from"><label for="filghtfrom"><span>Item</span> your shopping list items here...</label><input type="text" name="task-insert" id="create-task" class="field-input"></div>
+
+                                 <ul class="tabs-head nav-tabs-two">
+                                 <li class="active"><a data-toggle="tab" href="index.html#section1" aria-expanded="true">Items</a></li>
+                                 <li id="suggested-tab" class=""><a data-toggle="tab" href="index.html#section2" aria-expanded="false">Suggested Items</a></li>
+                                 </ul>
+
+                                 <div class="tab-content">
+                                 <div id="section1" class="tab-pane fade active in">
+                                 
+                                    <div class="form-field field-from">
+                                    <label for="filghtfrom"><span>Item</span> your shopping list items here...</label>
+                                    <input type="text" name="task-insert" id="create-task" class="field-input">
+                                    </div>
 
                                     <div id="task-container">
-										<ul style="padding: 5px;" id="task-list">
-										</ul>
-									</div>
+                                       <ul style="padding: 5px;" id="task-list">
+                                       </ul>
+                                    </div>
 
-                                    <div class="form-submit"><button style="width: 275px;" id="create-task" type="submit" class="awe-btn awe-btn-medium awe-btn-1">Add Item</button></div>
+                                    <div class="form-submit">
+                                    <button style="width: 275px;" id="create-task" type="submit" class="awe-btn awe-btn-medium awe-btn-1">Add Item</button>
+                                    </div>
+
+                                 </div>
+                                 <div id="section2" class="tab-pane fade">
+                                    
+                                 </div>
+                              </div>
+
+
                                  <div class="form-submit">
                                  	<button type="submit" id="step-4-btn" class="awe-btn awe-btn-medium awe-btn-1">Next &gt;&gt;</button>
                                  	</div>

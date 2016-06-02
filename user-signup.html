@@ -182,5 +182,14 @@
       </script>
       <!-- Facebook JS -->
 		<script src="js/facebook.js"></script>
+      <script>
+$(document).ready(function() {
+          $(window).load(function () {
+              setTimeout(function(){
+               check_login_status();
+              },2000);
+          });
+      });
+      </script>
    </body>
 </html>

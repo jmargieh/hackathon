@@ -3,9 +3,13 @@ function fb_login(){
 
       if (response.authResponse) {
           console.log('Welcome!  Fetching your information.... ');
-          uid = response.authResponse.userID; //get FB UID
-          //change_UIview(1);
-          window.location="http://www.youAreLoggedIn.com";
+      
+      getLoggedInUserFriends(function(){
+          getLoggedInUserInfo(function(){
+          window.location="myEvents.html";
+        });
+    });
+          //window.location="http://www.youAreLoggedIn.com";
 
       } else {
           //user hit cancel button
@@ -17,23 +21,46 @@ function fb_login(){
   });
 }
 
+
+// calculate points of users who were tagged on one or more photo of logged user.
+function getLoggedInUserFriends(callback){  
+        FB.api('me/friends?fields=name,picture',function(response) {
+
+            if(response && !response.error){
+              console.log(response.data);
+              localStorage.setItem("friendList",JSON.stringify(response.data));
+              callback();
+            }
+        });
+}
+
+function getLoggedInUserInfo(callback){
+          FB.api('me?fields=first_name,last_name',function(response) {
+
+            if(response && !response.error){
+              localStorage.setItem("loggedUser",JSON.stringify(response));
+              callback();
+            }
+        });
+}
+
+
 function check_login_status(){
                 FB.getLoginStatus(function(response) {
   if (response.status === 'connected') {
-    // the user is logged in and has authenticated your
-    // app, and response.authResponse supplies
-    // the user's ID, a valid access token, a signed
-    // request, and the time the access token
-    // and signed request each expire
-    //change_UIview(0);
-    window.location="http://www.youAreLoggedIn.com";
-    uid = response.authResponse.userID;
-    console.log(uid);
+
+    getLoggedInUserFriends(function(){
+
+        getLoggedInUserInfo(function(){
+
+        window.location="myEvents.html";
+        //window.location="user-signup.html";
+
+        })
+    });
 
   } else if (response.status === 'not_authorized') {
-        //change_panelTitle();
-    // the user is logged in to Facebook,
-    // but has not authenticated your app
+
   } else {
     // the user isn't logged in to Facebook.
   }
@@ -42,7 +69,7 @@ function check_login_status(){
 
 function fb_logout(){
     FB.logout(function(response) {
-      window.location="http://www.youAreLoggedOut.com";
+      window.location="user-signup.html";
     //change_UIview(1); // change to loggedout view
 
 });

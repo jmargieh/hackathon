@@ -1,7 +1,62 @@
+$(function() {
+
+// var availableTags = [
+//       "ActionScript",
+//       "AppleScript",
+//       "Asp",
+//       "BASIC",
+//       "C",
+//       "C++",
+//       "Clojure",
+//       "COBOL",
+//       "ColdFusion",
+//       "Erlang",
+//       "Fortran",
+//       "Groovy",
+//       "Haskell",
+//       "Java",
+//       "JavaScript",
+//       "Lisp",
+//       "Perl",
+//       "PHP",
+//       "Python",
+//       "Ruby",
+//       "Scala",
+//       "Scheme"
+//     ];
+
+var jsonFriends = JSON.parse(localStorage.getItem("friendList"));
+var friendArray = [];
+for (var i = 0; i < jsonFriends.length; i++) {
+	var JSONObj = { "label" : jsonFriends[i].name, "value"  : jsonFriends[i].name, "id" : jsonFriends[i].id };
+	friendArray.push(JSONObj);
+}
+
+
+$("#friends-search").autocomplete({
+      source: friendArray,
+      select: function( event, ui ) {
+      	console.log(ui);
+      	// create the new li from the form input
+		var friend = ui.item.value;
+		var newFriend = '<li>' + '<p id='+ui.item.id+'>'+friend+'</p>' + '</li>'
+		$('#friends-list').append(newFriend);
+
+		// clear form when button is pressed
+		$("#friends-search").val('');
+
+		// Alert if the form in submitted empty
+		if (friend.length == 0) {
+			alert('please enter a task');
+		};
+      }
+    });
+
+});
+
 $( document ).ready(function() {
  
  var datesNumber = 0;
-
 
 /////////// step-1-btn click /////////
 	$( "#step-1-btn" ).click(function() {
@@ -45,6 +100,34 @@ $( document ).ready(function() {
 /////////// step-4-btn click /////////
 
 
+//////// suggested post list items //////
+
+$("#suggested-tab").click(function() {
+	var itemsList = [], eventType, data;
+	$( "#task-list li" ).each(function( index ) {
+  		console.log( index + ": " + $( this ).text() );
+  		itemsList.push($( this ).text());
+	});
+	console.log(itemsList);
+	eventType = $( "#eventType option:selected" ).text();
+	data = { "eventType" : eventType, "shoppingList"  : itemsList };
+	console.log(data);
+	$.ajax({
+  			type: "POST",
+			url: "http://glass-tribute-131519.appspot.com/suggested",
+			data: data,
+			success: function(response){
+    			alert(response);
+  			},
+ 			error: function(response){
+    			alert("error");
+  			}
+	});
+
+
+});
+/////// suggested post list items ////////
+
 
 	$("#add-date-btn").click(function() {
 
@@ -62,15 +145,11 @@ $( document ).ready(function() {
 	//  main button click function
 	$('button#create-task').on('click', function(){
 
-		// remove nothing message
-		if ('.nothing-message') {
-			$('.nothing-message').hide('slide',{direction:'left'},300)
-		};
 
 		// create the new li from the form input
 		var task = $('input[name=task-insert]').val();
 		var newTask = '<li>' + '<p>'+task+'</p>' + '</li>'
-		$('#task-list').append(newTask);
+		$('#task-list').prepend(newTask);
 
 		// clear form when button is pressed
 		$('input').val('');
