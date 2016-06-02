@@ -36,6 +36,25 @@
 
             </head>
             <body>
+            <!-- ############## FACEBOOK API ############## -->
+      <script>
+      window.fbAsyncInit = function() {
+      FB.init({
+       appId      : '468115333349990',
+       xfbml      : true,
+       version    : 'v2.6'
+      });
+      };
+
+      (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+      </script>
+<!-- ############## FACEBOOK API ############## -->
                <div id="preloader" style="display: none;">
                   <div class="tb-cell">
                      <div id="page-loading">
@@ -154,13 +173,13 @@
                         <div class="logo-banner text-center" style="display: block;"><a href="index.html" title=""><img src="images/logo-banner.png" alt=""></a></div>
                         <div class="banner-cn">
                            <ul class="tabs-cat text-center row">
-                              <li class="cate-item col-xs-2 active" id="form-flight-tab"><a data-toggle="tab" href="index.html#form-flight" title="" aria-expanded="false"><span>flight</span> <img src="images/icon-flight.png" alt=""></a></li>
-
-                              <li class="cate-item col-xs-2" id="form-hotel-tab"><a data-toggle="tab" href="index.html#form-hotel" title="" aria-expanded="false"><span>Hotel</span><img src="images/icon-calendar.png" alt=""></a></li>
+                              <li class="cate-item col-xs-2 active" id="form-flight-tab"><a data-toggle="tab" href="index.html#form-flight" title="" aria-expanded="false"><span>flight</span> <img src="images/icon-spoon.png" alt=""></a></li>
 
                               <li class="cate-item col-xs-2" id="form-car-tab"><a data-toggle="tab" href="index.html#form-car" title="" aria-expanded="true"><span>Car</span><img src="images/icon-location.png" alt=""></a></li>
 
                               <li class="cate-item col-xs-2" id="form-package-tab"><a data-toggle="tab" href="index.html#form-package" title="" aria-expanded="false"><span>package deals</span><img src="images/icon-bag.png" alt=""></a></li>
+
+                              <li class="cate-item col-xs-2" id="form-hotel-tab"><a data-toggle="tab" href="index.html#form-hotel" title="" aria-expanded="false"><span>Hotel</span><img src="images/icon-calendar.png" alt=""></a></li> 
 
                               <li class="cate-item col-xs-2" id="form-friends-tab"><a data-toggle="tab" href="index.html#form-friends" title="" aria-expanded="false"><span>package deals</span><img src="images/icon-friend.png" alt=""></a></li>
                               
@@ -213,10 +232,10 @@
 	                                    <input type="date" class="field-input eventDate" placeholder="Date:">
 	                                    </div>
 	                                    <div class="form-field field-destination"><!-- <label for="destination"><span>From:</span></label> -->
-	                                    <input type="time" id="date-from-0" placeholder="From:" class="field-input eventFrom">
+	                                    <input type="time" placeholder="From:" class="field-input date-from eventFrom">
 	                                    </div>
 	                                    <div class="form-field field-destination"><!-- <label for="destination"><span>To:</span></label> -->
-	                                    <input type="time" id="date-to-0" style="border-bottom:2px dashed #000000;" placeholder="To:" class="field-input eventTo">
+	                                    <input type="time" style="border-bottom:2px dashed #000000;" placeholder="To:" class="field-input eventTo date-to">
 	                                    </div>
                                  </div>
 
@@ -301,13 +320,13 @@
                                           </select>
                                        </div>
                                     </div>
-                                    <div class="form-submit"><button type="submit" class="awe-btn awe-btn-medium awe-search">Search</button></div>
+                                    <div class="form-submit"><button type="button" class="awe-btn awe-btn-medium awe-search">Search</button></div>
                                  </div>
                               </div>
                               <div class="form-cn form-flight tab-pane active" id="form-flight">
                                  <h2>Event</h2>
                                  <div class="form-search clearfix">
-                                    <div class="form-field field-from"><label for="flight-from"><span>Event name : </span> </label><input type="text" name="flightfrom" id="eventName" class="field-input"></div>
+                                    <div class="form-field field-from"><label for="flight-from"><span>Event name : </span> </label><input type="text" id="eventName" class="field-input"></div>
                                     <div class="form-field field-to"><label for="flight-to"><span>Event Description : </span> </label><input type="text" id="eventDesc" class="field-input"></div>
                                    <div class="form-field field-select">
                                        <div class="select">
@@ -351,7 +370,7 @@
                                     </div>
 
                                     <div class="form-submit">
-                                    <button style="width: 275px;" id="create-task" type="submit" class="awe-btn awe-btn-medium awe-btn-1">Add Item</button>
+                                    <button style="width: 275px;" id="create-task" type="button" class="awe-btn awe-btn-medium awe-btn-1">Add Item</button>
                                     </div>
 
                                  </div>
@@ -365,7 +384,7 @@
 
 
                                  <div class="form-submit">
-                                 	<button type="submit" id="step-4-btn" class="awe-btn awe-btn-medium awe-btn-1">Next &gt;&gt;</button>
+                                 	<button type="button" id="step-4-btn" class="awe-btn awe-btn-medium awe-btn-1">Next &gt;&gt;</button>
                                  	</div>
 
                                  </div>
@@ -405,7 +424,7 @@
                                           </select>
                                        </div>
                                     </div>
-                                    <div class="form-submit"><button type="submit" class="awe-btn awe-btn-medium awe-search">Search</button></div>
+                                    <div class="form-submit"><button type="button" class="awe-btn awe-btn-medium awe-search">Search</button></div>
                                  </div>
                               </div>
                            </div>
