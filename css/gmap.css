@@ -1,0 +1,18 @@
+#map-canvas {
+    height: 400px;
+    width:100%;
+    margin: 0;
+    padding: 0;
+}
+#map{
+    height: 400px;
+    width: 96%;
+    margin: 6px;
+    padding: 3px;
+}
+#gmap{
+    width: 100%;
+    height: 500px;
+    margin:0;
+    padding: 10px;
+}

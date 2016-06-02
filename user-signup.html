@@ -1,0 +1,186 @@
+<html>
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+      <title>User Signup</title>
+      <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700%7COpen+Sans:300,400,600,700" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="css/library/font-awesome.min.css">
+      <link rel="stylesheet" href="css/library/bootstrap.min.css">
+      <link rel="stylesheet" href="css/library/jquery-ui.min.css">
+      <link rel="stylesheet" href="css/library/owl.carousel.css">
+      <link rel="stylesheet" href="css/library/jquery.mb.YTPlayer.min.css">
+      <link rel="stylesheet" href="css/style.css">
+
+      <script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/24/11a/common.js"></script><script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/24/11a/util.js"></script><script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/24/11a/stats.js"></script>
+   </head>
+   <body style="overflow: visible;">
+<!-- ############## FACEBOOK API ############## -->
+      <script>
+      window.fbAsyncInit = function() {
+      FB.init({
+       appId      : '468115333349990',
+       xfbml      : true,
+       version    : 'v2.6'
+      });
+      };
+
+      (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+      </script>
+<!-- ############## FACEBOOK API ############## -->
+
+      <div id="preloader" style="display: none;">
+         <div class="tb-cell">
+            <div id="page-loading">
+               <div></div>
+               <p>Loading</p>
+            </div>
+         </div>
+      </div>
+      <div id="wrap">
+         <header id="header" class="header" style="background-color: transparent;">
+            <div class="container">
+               <div class="logo float-left" style="opacity: 0; visibility: hidden;"><a href="index.html" title=""><img src="images/logo-header.png" alt=""></a></div>
+               <div class="bars" id="bars" style="display: block;"></div>
+               <nav class="navigation nav-c nav" id="navigation" data-menu-type="1200">
+                  <div class="nav-inner">
+                     <a href="user-signup.html#" class="bars-close" id="bars-close" style="display: inline;">Close</a>
+                     <div class="tb">
+                        <div class="tb-cell">
+                           <ul class="menu-list text-uppercase">
+                              <li class="menu-parent">
+                                 <a href="index.html" title="">Home</a>
+                                 <ul class="sub-menu" style="">
+                                    <li><a href="index.html" title="">Home menu 1</a></li>
+                                    <li><a href="index2.html" title="">Home menu 2</a></li>
+                                    <li><a href="index3.html" title="">Home menu 3</a></li>
+                                    <li><a href="index4.html" title="">Home menu 4</a></li>
+                                    <li><a href="index5.html" title="">Home background slide</a></li>
+                                    <li><a href="index6.html" title="">Home background video</a></li>
+                                 </ul>
+                              </li>
+                              <li class="current-menu-parent menu-parent">
+                                 <a href="user-signup.html#">Pages</a>
+                                 <ul class="sub-menu" style="">
+                                    <li class="menu-parent">
+                                       <a href="user-signup.html#" title="">Blog</a>
+                                       <ul class="sub-menu">
+                                          <li><a href="blog.html" title="">Blog</a></li>
+                                          <li><a href="blog-detail.html">Blog Detail</a></li>
+                                       </ul>
+                                    </li>
+                                    <li><a href="about.html" title="">About</a></li>
+                                    <li class="current-menu-parent menu-parent">
+                                       <a href="user-signup.html#" title="">User</a>
+                                       <ul class="sub-menu">
+                                          <li><a href="user-booking.html" title="">User Booking</a></li>
+                                          <li><a href="user-profile.html" title="">User Profile</a></li>
+                                          <li><a href="user-setting.html" title="">User Setting</a></li>
+                                          <li><a href="user-review.html" title="">User Review</a></li>
+                                          <li class="current-menu-item"><a href="user-signup.html" title="">User Signup</a></li>
+                                       </ul>
+                                    </li>
+                                    <li><a href="contact.html" title="">Contact</a></li>
+                                    <li><a href="payment.html" title="">Payment</a></li>
+                                    <li><a href="element.html" title="">Element</a></li>
+                                    <li><a href="404.html" title="">404</a></li>
+                                    <li><a href="comingsoon.html" title="">Comingsoon</a></li>
+                                 </ul>
+                              </li>
+                              <li class="menu-parent">
+                                 <a href="user-signup.html#" title="">Hotel</a>
+                                 <ul class="sub-menu" style="display: none;">
+                                    <li><a href="home-hotel.html" title="">Hotel</a></li>
+                                    <li><a href="hotel-list.html">Hotel List 1</a></li>
+                                    <li><a href="hotel-list-2.html">Hotel List 2</a></li>
+                                    <li><a href="hotel-maps.html">Hotel Map</a></li>
+                                    <li><a href="hotel-detail.html">Hotel Detail</a></li>
+                                 </ul>
+                              </li>
+                              <li class="menu-parent">
+                                 <a href="user-signup.html#" title="">Flights</a>
+                                 <ul class="sub-menu" style="">
+                                    <li><a href="home-flight.html" title="">Flights</a></li>
+                                    <li><a href="flight-list.html">Flight List</a></li>
+                                 </ul>
+                              </li>
+                              <li class="menu-parent">
+                                 <a href="user-signup.html#" title="">Car</a>
+                                 <ul class="sub-menu" style="">
+                                    <li><a href="home-car.html" title="">Car</a></li>
+                                    <li><a href="car-list.html">Cart List</a></li>
+                                 </ul>
+                              </li>
+                              <li class="menu-parent">
+                                 <a href="user-signup.html#" title="">Package</a>
+                                 <ul class="sub-menu" style="">
+                                    <li><a href="home-package.html" title="">Package Deals</a></li>
+                                    <li><a href="package-list.html">Package Deals List</a></li>
+                                 </ul>
+                              </li>
+                              <li class="menu-parent">
+                                 <a href="user-signup.html#" title="">Cruises</a>
+                                 <ul class="sub-menu" style="">
+                                    <li><a href="home-cruise.html" title="">Cruises</a></li>
+                                    <li><a href="cruise-list.html">Cruise List</a></li>
+                                    <li><a href="cruise-detail.html">Cruise Detail</a></li>
+                                 </ul>
+                              </li>
+                              <li class="menu-parent">
+                                 <a href="user-signup.html#" title="">Tours</a>
+                                 <ul class="sub-menu" style="">
+                                    <li><a href="home-tour.html" title="">Tours</a></li>
+                                    <li><a href="tour-list.html">Tour List</a></li>
+                                    <li><a href="tour-detail.html">Tour Detail</a></li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </nav>
+            </div>
+         </header>
+         <section class="sub-banner" style="margin-top: 0px;">
+            <div class="bg-parallax bg-1" style="background-position: 50% 8px;"></div>
+            <div class="logo-banner text-center" style="display: block;"><a href="user-signup.html" title=""><img src="images/logo-banner.png" alt=""></a></div>
+         </section>
+         <div class="main">
+            <div class="container">
+               <div class="main-cn element-page bg-white clearfix">
+                  <section class="user-profile">
+                     <div class="user-form user-signup">
+                        <div class="row">
+                           <div class="col-md-5">
+                              <h2 class="user-profile__title">Login</h2>
+                              <p>Access your account information and manage your events.</p>
+                              <div class="field-input"><input type="text" class="input-text" value="Email *"></div>
+                              <div class="field-input"><input type="text" class="input-text" value="Password *"></div>
+                              <div class="field-input"><button style="width:100%" class="awe-btn awe-btn-1 awe-btn-medium">Login</button></div>
+                              <div class="field-input"><button onclick="fb_login()" style="width:100%; background-color:#3b5998" class="awe-btn awe-btn-1 awe-btn-medium"><image style="height: 4%" src="images/icon/icon-facebook.png" class="fa" aria-hidden="true"> Login using Facebook</button></div>
+                           </div>
+                        </div>
+                     </div>
+                  </section>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script type="text/javascript" src="js/library/jquery-1.11.0.min.js"></script><script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script><script type="text/javascript" src="js/library/jquery-ui.min.js"></script><script type="text/javascript" src="js/library/bootstrap.min.js"></script><script type="text/javascript" src="js/library/owl.carousel.min.js"></script><script type="text/javascript" src="js/library/parallax.min.js"></script><script type="text/javascript" src="js/library/jquery.nicescroll.js"></script><script type="text/javascript" src="js/library/jquery.ui.touch-punch.min.js"></script><script type="text/javascript" src="js/library/jquery.mb.YTPlayer.min.js"></script><script type="text/javascript" src="js/library/SmoothScroll.js"></script><script type="text/javascript" src="js/script.js"></script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+         ga('create', 'UA-20585382-5', 'megadrupal.com');
+         ga('send', 'pageview');
+      </script>
+      <!-- Facebook JS -->
+		<script src="js/facebook.js"></script>
+   </body>
+</html>
