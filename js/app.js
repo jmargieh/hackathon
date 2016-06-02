@@ -110,12 +110,13 @@ $("#suggested-tab").click(function() {
 	});
 	console.log(itemsList);
 	eventType = $( "#eventType option:selected" ).text();
-	data = { "eventType" : eventType, "shoppingList"  : itemsList };
+	data = { "eventType" : eventType , "shoppingList"  : itemsList };
 	console.log(data);
 	$.ajax({
   			type: "POST",
 			url: "http://glass-tribute-131519.appspot.com/suggested",
 			data: data,
+			contentType: "application/json",
 			success: function(response){
     			alert(response);
   			},
