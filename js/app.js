@@ -100,6 +100,13 @@ $( document ).ready(function() {
 /////////// step-4-btn click /////////
 
 
+	$( "#finish-btn" ).click(function() {
+		var eventName = $("#eventName").val();
+		var eventDesc = $("#eventDesc").val();
+		var eventType = $( "#eventType option:selected" ).text();
+	});
+
+
 //////// suggested post list items //////
 
 var gotSuggested = 0;
@@ -182,10 +189,6 @@ var xhr = new XMLHttpRequest();
 		if (task.length == 0) {
 			alert('please enter a task');
 		};
-
-		// makes other controls fade in when first task is created
-		$('#controls').fadeIn();
-		$('.task-headline').fadeIn();
 	});
 
 	// mark as complete
