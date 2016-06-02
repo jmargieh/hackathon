@@ -17,7 +17,7 @@ class Event:
 
         """
         data = Utils.dictNoneCheck(data, {"title": "", "description": "", "eventType": "", "shoppingList": [],
-                                          "invitees": []})
+                                          "invitees": [], "availableDates": []})
         # make the user accepted array, everyone except the creator defaults to pending
         usersAccepted = []
         for inviteeId in data["invitees"]:
@@ -27,7 +27,7 @@ class Event:
 
         availableDates = data["availableDates"]
         for i in range(0, len(availableDates)):
-            availableDates["usersAccepted"] = usersAccepted
+            availableDates[i]["usersAccepted"] = usersAccepted
 
         data["availableDates"] = availableDates
         data["invitees"].append(userId)  # add the creator

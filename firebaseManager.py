@@ -42,7 +42,8 @@ class FirebaseManager:
     def pushToFB(data,path):
         logging.info("Pushing to Firebase")
         url = str(FBBaseURL)+str(path)+str(FBAuth)
-        res = json.loads(urlfetch.fetch(url, payload=json.dumps(data), method='POST'))
+        res = urlfetch.fetch(url, payload=json.dumps(data), method='POST')
+        res = json.loads(res.content)
         if res is None or "name" not in res:
             return ""
         return res["name"]

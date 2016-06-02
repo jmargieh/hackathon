@@ -15,11 +15,13 @@ class BhadelPage(webapp2.RequestHandler):
         self.response.write('Sho ya bhadel ?')
 
 
-class Event(webapp2.RequestHandler):
+class Events(webapp2.RequestHandler):
     def post(self):
         self.response.headers.add_header("Access-Control-Allow-Origin", "*")
         body = json.loads(self.request.body)
-        Event.createEvent(body)
+        userId = body["userId"]
+        body.pop("userId", None)
+        Event.createEvent(userId, body)
         self.response.write('OK')
 
 
@@ -33,6 +35,6 @@ class Register(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/bhadel', BhadelPage),
-    ('/createevent', Event),
+    ('/createevent', Events),
     ('/register', Register),
 ], debug=True)
