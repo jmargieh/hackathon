@@ -117,6 +117,8 @@ $("#suggested-tab").click(function() {
 			url: "http://glass-tribute-131519.appspot.com/suggested",
 			data: data,
 			contentType: "application/json",
+			jsonp: "callback",
+        	dataType: "jsonp",
 			success: function(response){
     			alert(response);
   			},
