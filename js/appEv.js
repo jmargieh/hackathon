@@ -300,6 +300,7 @@ $("#suggested-tab").click(function() {
         xhr.onreadystatechange = function(){
         if(xhr.readyState == 4 && xhr.status == 200){
 			alert("Dates confirmed");
+			window.location = "myEvents.html"
         }
         else{
             if(xhr.status == 408 ){
