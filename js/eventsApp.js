@@ -1,7 +1,7 @@
 $(function() {
 
 /////////////////////////get myevents list/////////////////////////
-function parseEvent(Event, key)
+function parseEvent(Event, key, loggedUserId)
 {
 
 	var result = '<div class="user-review">';
@@ -15,7 +15,13 @@ function parseEvent(Event, key)
 	result = result + '<div class="col-xs-3 review-number">';
 	if ("finalDate" in Event){
 		fd = Event["finalDate"];
-		result = result + '<ins style="background-color:#5cd65c; color:#fff" >' + fd["fromTime"] +'-'+ fd["toTime"] + '@' + fd["eventDate"] + '</ins>';
+		usersAccepted = fd.usersAccepted;
+		if (usersAccepted.indexOf(loggedUserId) !== -1) {
+			result = result + '<ins style="background-color:#5cd65c; color:#fff" >' + fd["fromTime"] +'-'+ fd["toTime"] + '@' + fd["eventDate"] + '</ins>';
+		} else {
+			result = result + '<ins style="background-color:#ffa64d; color:#fff" >Sorry you have missed that!</ins>';
+		}
+		
 	}
 	else{
 		result = result + '<ins style="background-color:#ff4d4d; color:#fff" >Event Not Closed Yet!</ins>';
@@ -50,7 +56,7 @@ function getEventsList()
 			var newItem;
 			for(var i=0; i<response.length; i++) {
 				var key = Object.keys(response[i])[0];
-				newItem = parseEvent(response[i][key], key);
+				newItem = parseEvent(response[i][key], key, loggedUser.id);
 				$('#events-list').append(newItem);
 			}
 	        console.log(response);
