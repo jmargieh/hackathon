@@ -129,7 +129,8 @@ $( document ).ready(function() {
     xhr.open("POST", "https://glass-tribute-131519.appspot.com/createevent");
     xhr.onreadystatechange = function(){
         if(xhr.readyState == 4 && xhr.status == 200){
-			console.log("OK");
+			alert("Event created successfuly!");
+			window.location="myEvents.html";
         }
         else{
             if(xhr.status == 408 ){

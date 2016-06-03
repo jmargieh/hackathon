@@ -299,7 +299,7 @@ $("#suggested-tab").click(function() {
         xhr.open("POST", "https://glass-tribute-131519.appspot.com/dates");
         xhr.onreadystatechange = function(){
         if(xhr.readyState == 4 && xhr.status == 200){
-			console.log("OK");
+			alert("Dates confirmed");
         }
         else{
             if(xhr.status == 408 ){
@@ -331,7 +331,7 @@ $("#suggested-tab").click(function() {
         xhr.open("POST", "https://glass-tribute-131519.appspot.com/items");
         xhr.onreadystatechange = function(){
         if(xhr.readyState == 4 && xhr.status == 200){
-			console.log("OK");
+			alert("those items are your responsibility!");
         }
         else{
             if(xhr.status == 408 ){
