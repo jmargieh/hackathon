@@ -15,10 +15,10 @@ function parseEvent(Event, key)
 	result = result + '<div class="col-xs-3 review-number">';
 	if ("finalDate" in Event){
 		fd = Event["finalDate"];
-		result = result + '<ins>' + fd["fromTime"] +'-'+ fd["toTime"] + '@' + fd["eventDate"] + '</ins>';
+		result = result + '<ins style="background-color:#5cd65c; color:#fff" >' + fd["fromTime"] +'-'+ fd["toTime"] + '@' + fd["eventDate"] + '</ins>';
 	}
 	else{
-		result = result + '<ins>Event Not Closed Yet!</ins>';
+		result = result + '<ins style="background-color:#ff4d4d; color:#fff" >Event Not Closed Yet!</ins>';
 	}
 	result = result + '</div>';
 
