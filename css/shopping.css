@@ -109,7 +109,7 @@
 }
 #task-container li:hover{
 	opacity: 0.8;
-	border-top:9px solid #F0553B;
+	/*border-top:9px solid #F0553B;*/
 }
 #task-container p{
 	line-height: 1.6em;
@@ -132,7 +132,7 @@
 	background-size: 100%;
 }
 #task-container li.complete:hover{
-	border-top:9px solid #F0553B;
+	/*border-top:9px solid #F0553B;*/
 	opacity:0.6;
 }
 #task-container li.complete p{

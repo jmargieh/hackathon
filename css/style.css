@@ -1,3 +1,8 @@
+.disabled {
+    pointer-events:none; //This makes it not clickable
+    opacity:0.6;         //This grays it out to look disabled
+}
+
 .ui-autocomplete {
   position: absolute;
   top: 100%;
@@ -9606,10 +9611,10 @@ footer .copyright {
         font-size: 30px
     }
     .review-item .review-number ins {
-        width: 70px;
-        height: 70px;
-        line-height: 70px;
-        font-size: 24px
+    width: 325px;
+    height: 85px;
+    line-height: 85px;
+    font-size: 24px;
     }
     .title-detail {
         font-size: 20px
@@ -10831,7 +10836,8 @@ footer .copyright {
     }
     .user-review .review-item .review-header,
     .user-review .review-item [class*=col-] {
-        position: static
+        position: static;
+        display: inline-flex;
     }
     .user-review .review-item .review-header h4 span {
         display: block
