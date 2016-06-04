@@ -50,12 +50,12 @@ def putItem(eventType,item):
 	FirebaseManager.patchToFB(item,DBEventTypesPath+eventType)
 
 
-def putFinalDate(eventID,fromTime,toTime,eventDate):
+def putFinalDate(eventID, fromTime, toTime, eventDate,usersAccepted):
 	global DBTimesPath
 
 	finalDatePath = DBTimesPath + eventID + "/finalDate"
 
-	finalDate = {"fromTime":fromTime,"toTime":toTime,"eventDate": eventDate}
+	finalDate = {"fromTime":fromTime,"toTime":toTime,"eventDate": eventDate, "usersAccepted": usersAccepted}
 	FirebaseManager.saveToFB(finalDate,finalDatePath)
 
 
@@ -67,7 +67,13 @@ def closeEventTime(eventID):
 	bestTimeIndex = calcBestTime(eventAvailableTimes)
 
 	logging.info(bestTimeIndex)
-	putFinalDate(eventID,eventAvailableTimes[bestTimeIndex]["fromTime"],eventAvailableTimes[bestTimeIndex]["toTime"],eventAvailableTimes[bestTimeIndex]["eventDate"])
+	usersAccepted = eventAvailableTimes[bestTimeIndex]["usersAccepted"]
+	usersGoing =[]
+	for i in range(0,len(usersAccepted)):
+		if usersAccepted[i]["status"] == "confirmed":
+			usersGoing.append(usersAccepted[i]["userId"])
+
+	putFinalDate(eventID,eventAvailableTimes[bestTimeIndex]["fromTime"],eventAvailableTimes[bestTimeIndex]["toTime"],eventAvailableTimes[bestTimeIndex]["eventDate"],usersGoing)
 
 
 def calcBestTime(eventAvailableTimes):
